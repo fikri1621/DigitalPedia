@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Search, Menu, X, ExternalLink } from "lucide-react";
+import { Search, Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -121,14 +121,6 @@ export default function Header() {
           >
             Categories
           </Link>
-          <a
-            href="https://www.etsy.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center w-full mt-4 px-4 py-2.5 text-sm font-medium text-white bg-neutral-900 rounded-lg"
-          >
-            Visit Our Etsy Shop <ExternalLink className="w-4 h-4 ml-2" />
-          </a>
         </div>
       )}
     </header>

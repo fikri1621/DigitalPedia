@@ -3,12 +3,13 @@ import { products } from "@/data/products";
 import { categories } from "@/data/categories";
 import { formatPrice } from "@/lib/utils";
 import ProductGrid from "@/components/ProductGrid";
-import { ExternalLink, Check, Info, Share2 } from "lucide-react";
+import { ExternalLink, Check, Info } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { getProductGalleryImages } from "@/lib/product-images";
 import ProductGallery from "@/components/ProductGallery";
+import ShareButtons from "@/components/ShareButtons";
 
 interface ProductPageProps {
   params: Promise<{
@@ -19,15 +20,50 @@ interface ProductPageProps {
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
   const product = products.find((p) => p.slug === slug);
-  if (!product) return { title: "Product Not Found" };
+  if (!product) return { title: "Product Not Found | DigitalPedia" };
+
+  const category = categories.find((c) => c.id === product.categoryId);
+  const categoryName = category ? category.name : "Digital Assets";
+
+  const title = `Beli ${product.name} - ${categoryName} | DigitalPedia`;
+  const description = `${product.shortDescription} Dapatkan akses instan ke ${product.name} secara aman via Etsy. Kumpulan template & aset digital pilihan terbaik dari DigitalPedia.`;
+  const pageUrl = `https://digitalpedia.store/product/${product.slug}`;
 
   return {
-    title: `${product.name} | AuraDigital`,
-    description: product.shortDescription,
+    title,
+    description,
+    keywords: [
+      product.name,
+      categoryName,
+      "template digital",
+      "aset digital",
+      "etsy digital download",
+      "digitalpedia",
+      ...product.features
+    ],
     openGraph: {
-      title: product.name,
-      description: product.shortDescription,
-      type: "article",
+      title,
+      description,
+      url: pageUrl,
+      type: "website",
+      siteName: "DigitalPedia",
+      images: [
+        {
+          url: product.mainImage,
+          width: 800,
+          height: 800,
+          alt: product.name,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [product.mainImage],
+    },
+    alternates: {
+      canonical: pageUrl,
     },
   };
 }
@@ -57,19 +93,49 @@ async function ProductContent({ params }: ProductPageProps) {
   const category = categories.find((c) => c.id === product.categoryId);
   const relatedProducts = products
     .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
-    .slice(0, 3);
+    .slice(0, 4);
 
   const galleryImages = getProductGalleryImages(product.slug);
-  const displayImages = galleryImages.length > 0 ? galleryImages : [];
+  const displayImages = galleryImages.length > 0 ? galleryImages : [product.mainImage];
+
+  // Schema Markup (JSON-LD) untuk Google Rich Results
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": displayImages,
+    "description": product.fullDescription,
+    "brand": {
+      "@type": "Brand",
+      "name": "DigitalPedia"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": product.etsyUrl,
+      "priceCurrency": product.currency,
+      "price": product.price,
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "DigitalPedia Etsy Shop"
+      }
+    }
+  };
 
   return (
-    <div className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        {/* Breadcrumb */}
+    <div className="bg-white min-h-screen py-12">
+      {/* Script JSON-LD untuk SEO Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Breadcrumb Navigation */}
         <nav className="flex mb-8 text-xs font-medium text-neutral-400 uppercase tracking-widest" aria-label="Breadcrumb">
-          <Link href="/" className="hover:text-neutral-900">Home</Link>
+          <Link href="/" className="hover:text-neutral-900 transition-colors">Home</Link>
           <span className="mx-2">/</span>
-          <Link href="/shop" className="hover:text-neutral-900">Shop</Link>
+          <Link href="/shop" className="hover:text-neutral-900 transition-colors">Shop</Link>
           {category && (
             <>
               <span className="mx-2">/</span>
@@ -77,118 +143,103 @@ async function ProductContent({ params }: ProductPageProps) {
             </>
           )}
           <span className="mx-2">/</span>
-          <span className="text-neutral-900 truncate max-w-[150px] sm:max-w-none">{product.name}</span>
+          <span className="text-neutral-900 truncate max-w-[200px]">{product.name}</span>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-24">
-          {/* Product Gallery */}
+        {/* Product Details Main Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-20">
+          {/* Product Gallery Component */}
           <ProductGallery images={displayImages} productName={product.name} />
 
-          {/* Product Info */}
+          {/* Product Info Column */}
           <div className="flex flex-col">
-            <div className="mb-8">
-              <div className="flex flex-wrap gap-2 mb-4">
-                {product.newArrival && (
-                  <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white bg-neutral-900 rounded-full">
-                    New Arrival
-                  </span>
-                )}
-                {product.bestseller && (
-                  <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-neutral-900 bg-neutral-100 rounded-full">
-                    Bestseller
-                  </span>
-                )}
-              </div>
+            <div className="border-b border-neutral-100 pb-6 mb-6">
+              {category && (
+                <span className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
+                  {category.name}
+                </span>
+              )}
               <h1 className="text-3xl sm:text-4xl font-serif font-bold text-neutral-900 mb-4 leading-tight">
                 {product.name}
               </h1>
-              <p className="text-2xl font-bold text-neutral-900">
-                {formatPrice(product.price, product.currency)}
+              <div className="flex items-center gap-4">
+                <span className="text-2xl font-bold text-neutral-900 blur-[6px] select-none">
+                  {formatPrice(product.price, product.currency)}
+                </span>
+                <span className="text-xs bg-green-50 text-green-700 font-semibold px-2.5 py-1 rounded-full border border-green-200">
+                  Instant Download via Etsy
+                </span>
+              </div>
+            </div>
+
+            <div className="prose prose-neutral max-w-none mb-8">
+              <p className="text-neutral-600 text-base leading-relaxed">
+                {product.fullDescription}
               </p>
             </div>
 
-            <div className="mb-8 p-6 bg-neutral-50 rounded-2xl border border-neutral-100">
-              <p className="text-sm text-neutral-600 leading-relaxed mb-6">
-                {product.shortDescription}
-              </p>
-              <div className="space-y-4">
-                <a
-                  href={product.etsyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-full px-8 py-4 text-sm font-bold uppercase tracking-widest text-white bg-neutral-900 rounded-full hover:bg-neutral-800 transition-all shadow-xl hover:shadow-2xl active:scale-95"
-                >
-                  Buy on Etsy <ExternalLink className="w-4 h-4 ml-2" />
-                </a>
-                <p className="text-[10px] text-center text-neutral-400 uppercase tracking-widest">
-                  Secure checkout and instant delivery via Etsy
-                </p>
+            {/* Features list */}
+            {product.features && product.features.length > 0 && (
+              <div className="mb-8">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-900 mb-3">
+                  Highlights & Features
+                </h2>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {product.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-neutral-600">
+                      <Check className="w-4 h-4 text-neutral-900 mr-2 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
+            )}
+
+            {/* What's included */}
+            {product.whatsIncluded && product.whatsIncluded.length > 0 && (
+              <div className="mb-8 bg-neutral-50 p-4 rounded-xl border border-neutral-100">
+                <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-900 mb-2 flex items-center">
+                  <Info className="w-4 h-4 mr-1.5 text-neutral-500" /> What You Will Receive
+                </h2>
+                <ul className="list-disc list-inside text-xs text-neutral-600 space-y-1 pl-1">
+                  {product.whatsIncluded.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Buy Action Section */}
+            <div className="mt-auto pt-6 border-t border-neutral-100 flex flex-col sm:flex-row items-center gap-4">
+              <a
+                href={product.etsyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-widest text-white bg-neutral-900 rounded-xl hover:bg-neutral-800 transition-all shadow-lg hover:shadow-xl active:scale-95"
+              >
+                Buy Safely on Etsy <ExternalLink className="w-4 h-4 ml-2" />
+              </a>
             </div>
 
-            {/* Product Details Tabs-style sections */}
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-900 mb-4 flex items-center">
-                  <Info className="w-4 h-4 mr-2" /> Description
-                </h3>
-                <p className="text-sm text-neutral-500 leading-relaxed">
-                  {product.fullDescription}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-900 mb-4">Key Features</h3>
-                  <ul className="space-y-2">
-                    {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-start text-sm text-neutral-500">
-                        <Check className="w-4 h-4 text-neutral-900 mr-2 mt-0.5 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-900 mb-4">What&apos;s Included</h3>
-                  <ul className="space-y-2">
-                    {product.whatsIncluded.map((item, i) => (
-                      <li key={i} className="flex items-start text-sm text-neutral-500">
-                        <div className="w-1.5 h-1.5 bg-neutral-300 rounded-full mr-3 mt-1.5 flex-shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {product.compatibility && (
-                <div>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-900 mb-4">Compatibility</h3>
-                  <p className="text-sm text-neutral-500 italic">
-                    Works best with {product.compatibility}
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {/* Share */}
-            <div className="mt-12 pt-8 border-t border-neutral-100">
-               <button className="flex items-center text-xs font-bold uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors">
-                  <Share2 className="w-3.5 h-3.5 mr-2" /> Share Product
-               </button>
+            {/* Share Buttons */}
+            <div className="mt-6">
+              <ShareButtons
+                title={product.name}
+                url={`https://digitalpedia.store/product/${product.slug}`}
+                image={displayImages[0]}
+              />
             </div>
           </div>
         </div>
 
         {/* Related Products */}
         {relatedProducts.length > 0 && (
-          <div className="border-t border-neutral-100 pt-24">
-            <ProductGrid 
-              products={relatedProducts} 
-              title="You May Also Like" 
-              subtitle="Complementary digital resources to enhance your workflow."
-              columns={3}
+          <div className="border-t border-neutral-100 pt-16">
+            <ProductGrid
+              products={relatedProducts}
+              title="You Might Also Like"
+              subtitle="Explore similar items from our collection."
+              columns={4}
             />
           </div>
         )}
@@ -199,16 +250,14 @@ async function ProductContent({ params }: ProductPageProps) {
 
 function ProductSkeleton() {
   return (
-    <div className="bg-white min-h-screen animate-pulse">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="h-4 w-48 bg-neutral-100 rounded mb-8" />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="aspect-square bg-neutral-100 rounded-3xl" />
-          <div className="space-y-6">
-            <div className="h-8 w-3/4 bg-neutral-100 rounded" />
-            <div className="h-6 w-1/4 bg-neutral-100 rounded" />
-            <div className="h-32 bg-neutral-100 rounded-2xl" />
-          </div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-pulse">
+      <div className="h-4 bg-neutral-200 rounded w-1/4 mb-8"></div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="aspect-square bg-neutral-200 rounded-3xl"></div>
+        <div className="space-y-4">
+          <div className="h-8 bg-neutral-200 rounded w-3/4"></div>
+          <div className="h-6 bg-neutral-200 rounded w-1/4"></div>
+          <div className="h-24 bg-neutral-200 rounded"></div>
         </div>
       </div>
     </div>
