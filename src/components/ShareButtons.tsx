@@ -45,8 +45,9 @@ export default function ShareButtons({ title, url, image }: ShareButtonsProps) {
 
   const encodedUrl = encodeURIComponent(shareUrl);
   const encodedTitle = encodeURIComponent(title);
-  const encodedImage = image
-    ? encodeURIComponent(image.startsWith("http") ? image : `https://digitalpedia.store${image}`)
+  // Ensure image URL is absolute for Pinterest
+  const absoluteImageUrl = image 
+    ? (image.startsWith("http") ? image : `https://digitalpedia.store${image.startsWith("/") ? "" : "/"}${image}`)
     : "";
 
   const platforms = [
@@ -102,7 +103,7 @@ export default function ShareButtons({ title, url, image }: ShareButtonsProps) {
     },
     {
       name: "Pinterest",
-      href: `https://pinterest.com/pin/create/button/?url=${encodedUrl}&description=${encodedTitle}${encodedImage ? `&media=${encodedImage}` : ""}`,
+      href: `https://pinterest.com/pin/create/button/?url=${encodedUrl}&description=${encodedTitle}${absoluteImageUrl ? `&media=${encodeURIComponent(absoluteImageUrl)}` : ""}`,
       color: "hover:bg-red-600 hover:text-white hover:border-red-600",
       svg: (
         <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
