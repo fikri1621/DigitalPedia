@@ -2,6 +2,13 @@ import { categories } from "@/data/categories";
 import CategoryCard from "@/components/CategoryCard";
 import Link from "next/link";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Product Collections | DigitalPedia",
+  description: "Browse our complete curated collections of premium digital assets, organized to help you find the perfect tools for your projects.",
+};
+
 export default function CategoriesPage() {
   return (
     <div className="bg-white min-h-screen">

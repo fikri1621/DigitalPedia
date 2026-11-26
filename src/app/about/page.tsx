@@ -24,7 +24,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-8">
                 <p className="text-neutral-600 leading-relaxed">
-                  Founded in 2024, AuraDigital began with a singular goal: to bridge the gap between high-end design agency quality and accessible digital products. We noticed that many templates on the market were either overly complex or lacked professional polish.
+                  Founded in 2024, DigitalPedia began with a singular goal: to bridge the gap between high-end design agency quality and accessible digital products. We noticed that many templates on the market were either overly complex or lacked professional polish.
                 </p>
                 <p className="text-neutral-600 leading-relaxed">
                   Every product in our shop is built on a foundation of clean typography, ample white space, and functional layout. We don&apos;t just sell files; we sell time-saving solutions that help you look your best from day one.

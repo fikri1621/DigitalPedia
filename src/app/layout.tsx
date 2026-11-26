@@ -15,12 +15,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://digitalpedia.store"),
   title: "DigitalPedia | Professional Digital Products & Templates",
   description: "Discover modern, elegant digital products, templates, and workbooks for creators and entrepreneurs. Instant delivery via Etsy.",
   openGraph: {
     title: "DigitalPedia | Professional Digital Products",
     description: "Discover modern, elegant digital products, templates, and workbooks for creators and entrepreneurs.",
     type: "website",
+    siteName: "DigitalPedia",
   },
 };
 
