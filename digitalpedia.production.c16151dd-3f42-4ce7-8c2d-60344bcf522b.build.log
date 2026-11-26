@@ -1,0 +1,336 @@
+2026-11-26T16:58:25.953Z	Initializing build environment...
+2026-11-26T16:58:49.001Z	Success: Finished initializing build environment
+2026-11-26T16:58:49.670Z	Cloning repository...
+2026-11-26T16:59:06.177Z	Restoring from dependencies cache
+2026-11-26T16:59:06.178Z	Restoring from build output cache
+2026-11-26T16:59:06.182Z	Detected the following tools from environment: npm@10.9.2, nodejs@24.22.1
+2026-11-26T16:59:06.530Z	Installing project dependencies: npm clean-install --progress=false
+2026-11-26T16:59:13.195Z	npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+2026-11-26T16:59:19.535Z	
+2026-11-26T16:59:19.535Z	added 370 packages, and audited 371 packages in 12s
+2026-11-26T16:59:19.535Z	
+2026-11-26T16:59:19.535Z	150 packages are looking for funding
+2026-11-26T16:59:19.535Z	  run `npm fund` for details
+2026-11-26T16:59:19.535Z	
+2026-11-26T16:59:19.535Z	found 0 vulnerabilities
+2026-11-26T16:59:19.846Z	Executing user build command: npm run build
+2026-11-26T16:59:20.083Z	
+2026-11-26T16:59:20.083Z	> etsydigi@0.1.0 build
+2026-11-26T16:59:20.084Z	> next build
+2026-11-26T16:59:20.084Z	
+2026-11-26T16:59:20.469Z	▲ Next.js 16.4.6 (Turbopack)
+2026-11-26T16:59:20.519Z	✓ Running next.config.ts took 50ms
+2026-11-26T16:59:20.520Z	⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2026-11-26T16:59:20.534Z	Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2026-11-26T16:59:20.534Z	This information is used to shape Next.js' roadmap and prioritize features.
+2026-11-26T16:59:20.534Z	You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2026-11-26T16:59:20.535Z	https://nextjs.org/telemetry
+2026-11-26T16:59:20.535Z	
+2026-11-26T16:59:20.556Z	- Cache Components enabled
+2026-11-26T16:59:20.557Z	- Partial Prefetching enabled
+2026-11-26T16:59:20.557Z	
+2026-11-26T16:59:20.582Z	  Creating an optimized production build ...
+2026-11-26T16:59:26.349Z	✓ Compiled successfully in 5.8s
+2026-11-26T16:59:26.371Z	  Running TypeScript ...
+2026-11-26T16:59:30.232Z	  Finished TypeScript in 3.9s ...
+2026-11-26T16:59:30.234Z	  Collecting page data using 1 worker ...
+2026-11-26T16:59:30.641Z	  Generating static pages using 1 worker (0/68) ...
+2026-11-26T16:59:31.504Z	  Generating static pages using 1 worker (17/68) 
+2026-11-26T16:59:31.877Z	  Generating static pages using 1 worker (34/68) 
+2026-11-26T16:59:32.277Z	  Generating static pages using 1 worker (51/68) 
+2026-11-26T16:59:32.548Z	✓ Generating static pages using 1 worker (68/68) in 1906ms
+2026-11-26T16:59:32.559Z	  Finalizing page optimization ...
+2026-11-26T16:59:32.559Z	
+2026-11-26T16:59:32.564Z	Route (app)
+2026-11-26T16:59:32.564Z	┌ ○ /
+2026-11-26T16:59:32.564Z	├ ○ /_not-found
+2026-11-26T16:59:32.564Z	├ ○ /about
+2026-11-26T16:59:32.565Z	├ ○ /apple-icon
+2026-11-26T16:59:32.565Z	├ ○ /categories
+2026-11-26T16:59:32.565Z	├   /categories/[slug]
+2026-11-26T16:59:32.565Z	│ ├ ◐ /categories/[slug]
+2026-11-26T16:59:32.565Z	│ ├ ○ /categories/Excel
+2026-11-26T16:59:32.565Z	│ ├ ○ /categories/Website
+2026-11-26T16:59:32.565Z	│ └ ◐ [+7 more paths]
+2026-11-26T16:59:32.565Z	├ ○ /contact
+2026-11-26T16:59:32.565Z	├ ○ /icon.svg
+2026-11-26T16:59:32.565Z	├   /product/[slug]
+2026-11-26T16:59:32.565Z	│ ├ ◐ /product/[slug]
+2026-11-26T16:59:32.565Z	│ ├ ○ /product/ultimate-bookkeeping-resources-bundle
+2026-11-26T16:59:32.565Z	│ ├ ○ /product/2000-office-templates-bundle
+2026-11-26T16:59:32.566Z	│ └ ◐ [+46 more paths]
+2026-11-26T16:59:32.566Z	└ ◐ /shop
+2026-11-26T16:59:32.566Z	
+2026-11-26T16:59:32.566Z	
+2026-11-26T16:59:32.566Z	○  (Static)             prerendered as static content
+2026-11-26T16:59:32.566Z	◐  (Partial Prerender)  prerendered as static HTML with dynamic server-streamed content
+2026-11-26T16:59:32.566Z	
+2026-11-26T16:59:33.088Z	Success: Build command completed
+2026-11-26T16:59:34.143Z	Executing user deploy command: npx wrangler deploy
+2026-11-26T16:59:35.058Z	npm warn exec The following package was not found and will be installed: wrangler@4.168.0
+2026-11-26T16:59:44.722Z	npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+2026-11-26T16:59:49.291Z	
+2026-11-26T16:59:49.291Z	 ⛅️ wrangler 4.168.0
+2026-11-26T16:59:49.291Z	────────────────────
+2026-11-26T16:59:49.358Z	
+2026-11-26T16:59:49.360Z	Detected Project Settings:
+2026-11-26T16:59:49.360Z	 - Worker Name: digitalpedia
+2026-11-26T16:59:49.360Z	 - Framework: Next.js
+2026-11-26T16:59:49.360Z	 - Build Command: npm run build
+2026-11-26T16:59:49.363Z	 - Output Directory: .next
+2026-11-26T16:59:49.363Z	
+2026-11-26T16:59:49.363Z	? Do you want to modify these settings?
+2026-11-26T16:59:49.363Z	🤖 Using fallback value in non-interactive context: no
+2026-11-26T16:59:49.366Z	
+2026-11-26T16:59:49.371Z	📦 Install packages:
+2026-11-26T16:59:49.372Z	 - wrangler (devDependency)
+2026-11-26T16:59:49.372Z	
+2026-11-26T16:59:49.372Z	📝 Update package.json scripts:
+2026-11-26T16:59:49.372Z	 - "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
+2026-11-26T16:59:49.372Z	 - "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview"
+2026-11-26T16:59:49.372Z	
+2026-11-26T16:59:49.372Z	📄 Create wrangler.jsonc:
+2026-11-26T16:59:49.372Z	  {
+2026-11-26T16:59:49.372Z	    "$schema": "node_modules/wrangler/config-schema.json",
+2026-11-26T16:59:49.372Z	    "name": "digitalpedia",
+2026-11-26T16:59:49.372Z	    "compatibility_date": "2026-11-23",
+2026-11-26T16:59:49.372Z	    "observability": {
+2026-11-26T16:59:49.372Z	      "enabled": true
+2026-11-26T16:59:49.372Z	    }
+2026-11-26T16:59:49.372Z	  }
+2026-11-26T16:59:49.372Z	
+2026-11-26T16:59:49.372Z	🛠️  Configuring project for Next.js with OpenNext by running `@opennextjs/cloudflare migrate`
+2026-11-26T16:59:49.373Z	
+2026-11-26T16:59:49.373Z	? Proceed with setup?
+2026-11-26T16:59:49.373Z	🤖 Using fallback value in non-interactive context: yes
+2026-11-26T16:59:56.154Z	npm warn exec The following package was not found and will be installed: @opennextjs/cloudflare@1.20.19
+2026-11-26T17:00:13.948Z	npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+2026-11-26T17:00:23.639Z	
+2026-11-26T17:00:23.639Z	┌───────────────────────────────┐
+2026-11-26T17:00:23.639Z	│ OpenNext — Cloudflare migrate │
+2026-11-26T17:00:23.639Z	└───────────────────────────────┘
+2026-11-26T17:00:23.639Z	
+2026-11-26T17:00:23.639Z	🚀 Setting up the OpenNext Cloudflare adapter...
+2026-11-26T17:00:23.639Z	
+2026-11-26T17:00:23.650Z	⚙️  Installing dependencies...
+2026-11-26T17:00:23.650Z	
+2026-11-26T17:00:23.799Z	npm warn using --force Recommended protections disabled.
+2026-11-26T17:00:31.216Z	
+2026-11-26T17:00:31.216Z	added 212 packages, and audited 637 packages in 7s
+2026-11-26T17:00:31.216Z	
+2026-11-26T17:00:31.217Z	195 packages are looking for funding
+2026-11-26T17:00:31.217Z	  run `npm fund` for details
+2026-11-26T17:00:31.217Z	
+2026-11-26T17:00:31.217Z	found 0 vulnerabilities
+2026-11-26T17:00:31.391Z	npm warn using --force Recommended protections disabled.
+2026-11-26T17:00:32.970Z	
+2026-11-26T17:00:32.971Z	added 1 package, and audited 638 packages in 2s
+2026-11-26T17:00:32.971Z	
+2026-11-26T17:00:32.971Z	195 packages are looking for funding
+2026-11-26T17:00:32.971Z	  run `npm fund` for details
+2026-11-26T17:00:32.972Z	
+2026-11-26T17:00:32.972Z	found 0 vulnerabilities
+2026-11-26T17:00:32.998Z	⚙️  Creating wrangler.jsonc...
+2026-11-26T17:00:32.999Z	
+2026-11-26T17:00:34.477Z	(node:829) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+2026-11-26T17:00:34.479Z	(Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-26T17:00:34.830Z	WARN Failed to set up cache for your project.
+2026-11-26T17:00:34.831Z	After the migration completes, please manually setup cache in  wrangler.jsonc and open-next.config.ts files (for more details see: https://opennext.js.org/cloudflare/caching).
+2026-11-26T17:00:34.831Z	
+2026-11-26T17:00:34.831Z	⚙️  Creating open-next.config.ts...
+2026-11-26T17:00:34.831Z	
+2026-11-26T17:00:34.839Z	⚙️  Creating .dev.vars file...
+2026-11-26T17:00:34.839Z	
+2026-11-26T17:00:34.839Z	⚙️  Creating public/_headers file...
+2026-11-26T17:00:34.839Z	
+2026-11-26T17:00:34.839Z	⚙️  Updating package.json scripts...
+2026-11-26T17:00:34.839Z	
+2026-11-26T17:00:34.840Z	⚙️  Updating .gitignore file...
+2026-11-26T17:00:34.840Z	
+2026-11-26T17:00:34.840Z	⚙️  Updating Next.js config...
+2026-11-26T17:00:34.840Z	
+2026-11-26T17:00:34.841Z	⚙️  Checking for edge runtime usage...
+2026-11-26T17:00:34.841Z	
+2026-11-26T17:00:34.845Z	🎉 OpenNext Cloudflare adapter complete!
+2026-11-26T17:00:34.845Z	
+2026-11-26T17:00:34.845Z	Next steps:
+2026-11-26T17:00:34.845Z	- Run: "npm run preview" to build and preview your Cloudflare application locally
+2026-11-26T17:00:34.845Z	- Run: "npm run deploy" to deploy your application to Cloudflare Workers
+2026-11-26T17:00:34.845Z	- ⚠️  Setup cache, see https://opennext.js.org/cloudflare/caching for more details
+2026-11-26T17:00:34.845Z	
+2026-11-26T17:00:34.954Z	├ Adding Wrangler files to the .gitignore file
+2026-11-26T17:00:34.954Z	│ updated .gitignore file
+2026-11-26T17:00:34.955Z	│
+2026-11-26T17:00:34.955Z	[build] Running: npx opennextjs-cloudflare build
+2026-11-26T17:00:35.938Z	[build] 
+2026-11-26T17:00:35.940Z	[build] ┌─────────────────────────────┐
+2026-11-26T17:00:35.940Z	[build] │ OpenNext — Cloudflare build │
+2026-11-26T17:00:35.940Z	[build] └─────────────────────────────┘
+2026-11-26T17:00:35.940Z	[build] 
+2026-11-26T17:00:35.940Z	[build] 
+2026-11-26T17:00:36.736Z	[build] App directory: /opt/buildhome/repo
+2026-11-26T17:00:36.737Z	[build] 
+2026-11-26T17:00:36.737Z	[build] Next.js version : 16.4.6
+2026-11-26T17:00:36.737Z	[build] 
+2026-11-26T17:00:36.737Z	[build] @opennextjs/cloudflare version: 1.20.19
+2026-11-26T17:00:36.737Z	[build] @opennextjs/aws version: 4.2.1
+2026-11-26T17:00:36.737Z	[build] workerd compatibility_date: 2026-11-23
+2026-11-26T17:00:36.738Z	[build] 
+2026-11-26T17:00:36.738Z	[build] 
+2026-11-26T17:00:36.738Z	[build] ┌─────────────────────────────────┐
+2026-11-26T17:00:36.738Z	[build] │ OpenNext — Building Next.js app │
+2026-11-26T17:00:36.738Z	[build] └─────────────────────────────────┘
+2026-11-26T17:00:36.738Z	[build] 
+2026-11-26T17:00:36.738Z	[build] 
+2026-11-26T17:00:36.893Z	[build] 
+2026-11-26T17:00:36.893Z	[build] > etsydigi@0.1.0 build
+2026-11-26T17:00:36.893Z	[build] > next build
+2026-11-26T17:00:36.893Z	[build] 
+2026-11-26T17:00:36.894Z	[build] 
+2026-11-26T17:00:37.270Z	[build] ▲ Next.js 16.4.6 (Turbopack)
+2026-11-26T17:00:37.270Z	[build] 
+2026-11-26T17:00:38.116Z	[build] ✓ Running next.config.ts took 845ms
+2026-11-26T17:00:38.116Z	[build] 
+2026-11-26T17:00:38.130Z	[build] Using secrets defined in .dev.vars
+2026-11-26T17:00:38.130Z	[build] 
+2026-11-26T17:00:38.261Z	[build] - Cache Components enabled
+2026-11-26T17:00:38.262Z	[build] 
+2026-11-26T17:00:38.262Z	[build] - Partial Prefetching enabled
+2026-11-26T17:00:38.263Z	[build] 
+2026-11-26T17:00:38.263Z	[build] 
+2026-11-26T17:00:38.300Z	[build]   Creating an optimized production build ...
+2026-11-26T17:00:38.301Z	[build] 
+2026-11-26T17:00:41.418Z	[build] ✓ Compiled successfully in 3.1s
+2026-11-26T17:00:41.418Z	[build] 
+2026-11-26T17:00:41.428Z	[build]   Running TypeScript ...
+2026-11-26T17:00:41.428Z	[build] 
+2026-11-26T17:00:45.009Z	[build]   Finished TypeScript in 3.6s ...
+2026-11-26T17:00:45.011Z	[build] 
+2026-11-26T17:00:45.012Z	[build]   Collecting page data using 1 worker ...
+2026-11-26T17:00:45.012Z	[build] 
+2026-11-26T17:00:45.437Z	[build]   Generating static pages using 1 worker (0/68) ...
+2026-11-26T17:00:45.438Z	[build] 
+2026-11-26T17:00:46.273Z	[build]   Generating static pages using 1 worker (17/68) 
+2026-11-26T17:00:46.275Z	[build] 
+2026-11-26T17:00:46.695Z	[build]   Generating static pages using 1 worker (34/68) 
+2026-11-26T17:00:46.695Z	[build] 
+2026-11-26T17:00:47.098Z	[build]   Generating static pages using 1 worker (51/68) 
+2026-11-26T17:00:47.099Z	[build] 
+2026-11-26T17:00:47.411Z	[build] ✓ Generating static pages using 1 worker (68/68) in 1972ms
+2026-11-26T17:00:47.412Z	[build] 
+2026-11-26T17:00:47.424Z	[build]   Finalizing page optimization ...
+2026-11-26T17:00:47.424Z	[build] 
+2026-11-26T17:00:47.729Z	[build] 
+2026-11-26T17:00:47.730Z	[build] 
+2026-11-26T17:00:47.732Z	[build] Route (app)
+2026-11-26T17:00:47.732Z	[build] ┌ ○ /
+2026-11-26T17:00:47.732Z	[build] ├ ○ /_not-found
+2026-11-26T17:00:47.732Z	[build] ├ ○ /about
+2026-11-26T17:00:47.732Z	[build] ├ ○ /apple-icon
+2026-11-26T17:00:47.732Z	[build] ├ ○ /categories
+2026-11-26T17:00:47.732Z	[build] ├   /categories/[slug]
+2026-11-26T17:00:47.732Z	[build] │ ├ ◐ /categories/[slug]
+2026-11-26T17:00:47.732Z	[build] │ ├ ○ /categories/Excel
+2026-11-26T17:00:47.732Z	[build] │ ├ ○ /categories/Website
+2026-11-26T17:00:47.732Z	[build] │ └ ◐ [+7 more paths]
+2026-11-26T17:00:47.732Z	[build] ├ ○ /contact
+2026-11-26T17:00:47.732Z	[build] ├ ○ /icon.svg
+2026-11-26T17:00:47.733Z	[build] ├   /product/[slug]
+2026-11-26T17:00:47.733Z	[build] │ ├ ◐ /product/[slug]
+2026-11-26T17:00:47.733Z	[build] │ ├ ○ /product/ultimate-bookkeeping-resources-bundle
+2026-11-26T17:00:47.733Z	[build] │ ├ ○ /product/2000-office-templates-bundle
+2026-11-26T17:00:47.733Z	[build] │ └ ◐ [+46 more paths]
+2026-11-26T17:00:47.735Z	[build] └ ◐ /shop
+2026-11-26T17:00:47.736Z	[build] 
+2026-11-26T17:00:47.736Z	[build] 
+2026-11-26T17:00:47.736Z	[build] 
+2026-11-26T17:00:47.736Z	[build] ○  (Static)             prerendered as static content
+2026-11-26T17:00:47.737Z	[build] ◐  (Partial Prerender)  prerendered as static HTML with dynamic server-streamed content
+2026-11-26T17:00:47.737Z	[build] 
+2026-11-26T17:00:47.737Z	[build] 
+2026-11-26T17:00:48.028Z	[build] WARN Cache Components are not fully supported on Cloudflare yet. Track progress at https://github.com/opennextjs/opennextjs-cloudflare/pull/1318
+2026-11-26T17:00:48.029Z	[build] 
+2026-11-26T17:00:48.030Z	[build] 
+2026-11-26T17:00:48.030Z	[build] ┌──────────────────────────────┐
+2026-11-26T17:00:48.030Z	[build] │ OpenNext — Generating bundle │
+2026-11-26T17:00:48.031Z	[build] └──────────────────────────────┘
+2026-11-26T17:00:48.033Z	[build] 
+2026-11-26T17:00:48.034Z	[build] 
+2026-11-26T17:00:48.064Z	[build] Bundling middleware function...
+2026-11-26T17:00:48.064Z	[build] 
+2026-11-26T17:00:48.102Z	[build] Bundling static assets...
+2026-11-26T17:00:48.103Z	[build] 
+2026-11-26T17:00:48.519Z	[build] Bundling cache assets...
+2026-11-26T17:00:48.519Z	[build] 
+2026-11-26T17:00:48.657Z	[build] Building server function: default...
+2026-11-26T17:00:48.658Z	[build] 
+2026-11-26T17:00:52.406Z	[build] Applying code patches: 3.549s
+2026-11-26T17:00:52.406Z	[build] 
+2026-11-26T17:00:52.692Z	[build] # copyPackageTemplateFiles
+2026-11-26T17:00:52.693Z	[build] 
+2026-11-26T17:00:52.693Z	[build] ⚙️ Bundling the OpenNext server...
+2026-11-26T17:00:52.693Z	[build] 
+2026-11-26T17:00:52.693Z	[build] 
+2026-11-26T17:00:57.699Z	[build] Worker saved in `.open-next/worker.js` 🚀
+2026-11-26T17:00:57.699Z	[build] 
+2026-11-26T17:00:57.699Z	[build] OpenNext build complete.
+2026-11-26T17:00:57.699Z	[build] 
+2026-11-26T17:00:57.854Z	OpenNext project detected, calling `opennextjs-cloudflare deploy`
+2026-11-26T17:00:59.526Z	
+2026-11-26T17:00:59.527Z	┌──────────────────────────────┐
+2026-11-26T17:00:59.527Z	│ OpenNext — Cloudflare deploy │
+2026-11-26T17:00:59.527Z	└──────────────────────────────┘
+2026-11-26T17:00:59.527Z	
+2026-11-26T17:01:00.274Z	Using secrets defined in .dev.vars
+2026-11-26T17:01:00.668Z	Incremental cache does not need populating
+2026-11-26T17:01:00.669Z	Tag cache does not need populating
+2026-11-26T17:01:01.795Z	
+2026-11-26T17:01:01.795Z	 ⛅️ wrangler 4.168.0
+2026-11-26T17:01:01.795Z	────────────────────
+2026-11-26T17:01:01.802Z	
+2026-11-26T17:01:01.802Z	Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+2026-11-26T17:01:04.940Z	🌀 Building list of assets...
+2026-11-26T17:01:04.946Z	✨ Read 339 files from the assets directory /opt/buildhome/repo/.open-next/assets
+2026-11-26T17:01:06.619Z	🌀 Starting asset upload...
+2026-11-26T17:01:08.021Z	🌀 Found 1 new or modified static asset to upload. Proceeding with upload...
+2026-11-26T17:01:08.021Z	+ /BUILD_ID
+2026-11-26T17:01:09.063Z	Uploaded 1 of 1 asset
+2026-11-26T17:01:09.063Z	✨ Success! Uploaded 1 file (281 already uploaded) (1.04 sec)
+2026-11-26T17:01:09.064Z	
+2026-11-26T17:01:09.242Z	Total Upload: 7991.78 KiB / gzip: 1958.57 KiB
+2026-11-26T17:01:10.856Z	Your Worker has access to the following bindings:
+2026-11-26T17:01:10.856Z	Binding                                   Resource      
+2026-11-26T17:01:10.856Z	env.WORKER_SELF_REFERENCE (etsydigi)      Worker        
+2026-11-26T17:01:10.856Z	env.IMAGES                                Images        
+2026-11-26T17:01:10.856Z	env.ASSETS                                Assets        
+2026-11-26T17:01:10.856Z	
+2026-11-26T17:01:10.860Z	
+2026-11-26T17:01:10.970Z	✘ [ERROR] A request to the Cloudflare API (/accounts/bcd773b01493da74ed49158838647537/workers/scripts/digitalpedia/versions) failed.
+2026-11-26T17:01:10.970Z	
+2026-11-26T17:01:10.970Z	  Service binding 'WORKER_SELF_REFERENCE' references Worker 'etsydigi' which was not found. Verify the Worker exists in your account and that the service name in your configuration is correct. [code: 10143]
+2026-11-26T17:01:10.970Z	  To learn more about this error, visit: https://developers.cloudflare.com/workers/configuration/bindings/about-service-bindings/
+2026-11-26T17:01:10.970Z	
+2026-11-26T17:01:10.970Z	  
+2026-11-26T17:01:10.971Z	  If you think this is a bug, please open an issue at: https://github.com/cloudflare/workers-sdk/issues/new/choose
+2026-11-26T17:01:10.971Z	
+2026-11-26T17:01:10.971Z	
+2026-11-26T17:01:10.971Z	🪵  Logs were written to "/opt/buildhome/.config/.wrangler/logs/wrangler-2026-11-26_17-01-01_784.log"
+2026-11-26T17:01:10.971Z	ERROR Wrangler deploy command failed:
+2026-11-26T17:01:10.971Z	✘ [ERROR] A request to the Cloudflare API (/accounts/bcd773b01493da74ed49158838647537/workers/scripts/digitalpedia/versions) failed.
+2026-11-26T17:01:10.971Z	
+2026-11-26T17:01:10.971Z	  Service binding 'WORKER_SELF_REFERENCE' references Worker 'etsydigi' which was not found. Verify the Worker exists in your account and that the service name in your configuration is correct. [code: 10143]
+2026-11-26T17:01:10.971Z	  To learn more about this error, visit: https://developers.cloudflare.com/workers/configuration/bindings/about-service-bindings/
+2026-11-26T17:01:10.971Z	
+2026-11-26T17:01:10.971Z	  
+2026-11-26T17:01:10.971Z	  If you think this is a bug, please open an issue at: https://github.com/cloudflare/workers-sdk/issues/new/choose
+2026-11-26T17:01:10.971Z	
+2026-11-26T17:01:10.971Z	
+2026-11-26T17:01:10.971Z	🪵  Logs were written to "/opt/buildhome/.config/.wrangler/logs/wrangler-2026-11-26_17-01-01_784.log"
+2026-11-26T17:01:10.971Z	
+2026-11-26T17:01:11.011Z	
+2026-11-26T17:01:11.066Z	✘ [ERROR] 
+2026-11-26T17:01:11.067Z	
+2026-11-26T17:01:11.067Z	
+2026-11-26T17:01:11.067Z	If you think this is a bug then please create an issue at https://github.com/cloudflare/workers-sdk/issues/new/choose
+2026-11-26T17:01:11.081Z	🪵  Logs were written to "/opt/buildhome/.config/.wrangler/logs/wrangler-2026-11-26_16-59-49_187.log"
+2026-11-26T17:01:11.152Z	Failed: error occurred while running deploy command
